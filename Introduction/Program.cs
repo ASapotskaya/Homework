@@ -1,7 +1,9 @@
 ﻿//#define CONSOLE_PARAMETERS
 //#define STRING_OPERATIONS
 //#define DATA_TYPES
-#define LITERALS 
+//#define FIGURES
+//#define LITERALS 
+//#define CHESS
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,17 @@ namespace Introduction
         static void Main(string[] args)
         {
 #if CONSOLE_PARAMETERS
+            Console.OutputEncoding = System.Text.Encoding.GetEncoding(28591);
+            Console.WriteLine(Console.OutputEncoding.CodePage);
+            Console.WriteLine(Console.OutputEncoding.EncodingName);
+            for (int i = 0; i<256; i++)
+                {
+                if (i % 16 == 0) Console.WriteLine();
+                Console.Write((char)i + " ");
+                }
+            Console.WriteLine();
+
+
             Console.Title = "Introduction to .NET";
             Console.Write("\tHello .NET\n"); //просто write пишет в одну строчку все
             Console.Write("Сам привет!\n");
@@ -48,6 +61,7 @@ namespace Introduction
             Console.WriteLine($"Ваше имя: {first_name}, Ваша фамилия: {last_name}, Ваш возраст: {age} лет."); // интерполяция строк
 
 #endif
+#if FIGURES
             int x = 0, y = 0;
             Console.WriteLine("Figure 0 : ");
             Console.WriteLine();
@@ -170,6 +184,7 @@ namespace Introduction
                 Console.Write("\n");
 
             }
+#endif
 #if DATA_TYPES
             #region LOGICAL_TYPES
             //Console.WriteLine(true);
@@ -181,26 +196,7 @@ namespace Introduction
             //char - занимает 2 байта памяти и хранит один единственнй символ в коировке юникод
             //2^16 = 65 536
             #endregion
-            #region NUMERIC_TYPES
-            // числовые типы данных делятся на: целочисленные integral types и вещественные floating types
-            //к целочисленным типам относятся byte, sbyte 1 байт; short , ushort 2 байта; int, uint 4 байта; long, ulong 8 байт;
-            //к вещественным типам относятся float 4 байта; double 8 байт ; decimal 16 байт;
-            // float вещественное число одинарной точности, double- двойной точности, decimal - 
-            // float и double являются неточными типами они могут хранить оч большие и оч маленькие числа но 
-            // эти значения оч часто приблизительные, поэтому они не подходят для хранения денег
-            // для работы с деньгами существует тип данных decimal который модет храить лишь 28 знаков после запятой
-            // но с целочисленной точностью
-            //по скольку все типы являются объектами, у каждого типа есть свой класс обвертка, который хранит
-            // свойства типа. через класс обвертку всегда можно узнать минимальное. максимальное значение для данного типа
-            // и некоторые другие свойства. и все эти методы можно вызывать как через спецификатор типа так через класс обвертку
-            //класс обвертку для любого типа всегда можно узнать при помощи оператора typeof
-
-
-            //КОНСТАНТЫ
-            // Кроме именованных сущ-ют числовые символьные и строковые константы
-            //числовая константа это просто число в исходном коде программы, как и у любого другого значения, у этого числа есть тип.
-            // который всегда можно узнать при помощи мметода .GetType
-            // ПРЕОБРАЗОВАНИЕ ТИПОВ
+            #region NUMERIC_TYPE
             //Console.WriteLine(sizeof(int));
             //Console.WriteLine(int.MinValue+" ... "+int.MaxValue);
             Console.WriteLine($"Переменная типа  'int' занимает {sizeof(int)} Байт,\n" +
@@ -249,8 +245,59 @@ namespace Introduction
                 Console.WriteLine('+'.GetType()); // char
 
 #endif
+#if CHESS
+            Console.Write("Введите Размер поля: ");
+            int size = Convert.ToInt32(Console.ReadLine());
+            int x, y = 0;
+            x = 0;
+            y = 2;
+            if (size <= 0) Console.WriteLine("Некорректный размер");
+
+
+            void kvadrat()
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+
+                        if (j == i) Console.Write("* ");
+                        else if (j <= i) Console.Write("* ");
+                        else Console.Write("* ");
+                    }
+                    Console.Write('\n');
+                }
+            }
+            void pustota()
+            {
+
+                for (int i = 0; i < 5; i++)
+                {
+                    for (int j = 0; j < 5; j++)
+                    {
+
+                        if (j == i) Console.Write("  ");
+                        else if (j <= i) Console.Write("  ");
+                        else Console.Write("  ");
+                    }
+                    Console.Write('\n');
+                }
+            }
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Console.Write(i % 2 == 0 && j % 2 == 0 || i % 2 != 0 && j % 2 != 0 ? kvadrat() : pustota());
+                }
+                Console.Write("\n");
+
+
+#endif
+            
+
             
         }
-       static readonly string delimiter = "\n---------------------------------------------\n";
+        static readonly string delimiter = "\n---------------------------------------------\n";
     }
 }
