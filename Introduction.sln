@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shooter2", "shooter2\shoote
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calc", "Calc\Calc.csproj", "{51CE9E40-C547-4E23-AFFB-700B17C15B76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessBoard", "ChessBoard\ChessBoard.csproj", "{689DD804-46AF-4A56-9A65-59238BF9A8F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{51CE9E40-C547-4E23-AFFB-700B17C15B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51CE9E40-C547-4E23-AFFB-700B17C15B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51CE9E40-C547-4E23-AFFB-700B17C15B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{689DD804-46AF-4A56-9A65-59238BF9A8F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{689DD804-46AF-4A56-9A65-59238BF9A8F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{689DD804-46AF-4A56-9A65-59238BF9A8F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{689DD804-46AF-4A56-9A65-59238BF9A8F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

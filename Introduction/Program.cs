@@ -246,6 +246,7 @@ namespace Introduction
 
 #endif
 #if CHESS
+            
             Console.Write("Введите Размер поля: ");
             int size = Convert.ToInt32(Console.ReadLine());
             int x, y = 0;
