@@ -17,6 +17,7 @@ namespace Introduction
 
         static void Main(string[] args)
         {
+            
 #if CONSOLE_PARAMETERS
             Console.OutputEncoding = System.Text.Encoding.GetEncoding(28591);
             Console.WriteLine(Console.OutputEncoding.CodePage);
@@ -245,59 +246,11 @@ namespace Introduction
                 Console.WriteLine('+'.GetType()); // char
 
 #endif
-#if CHESS
-            
-            Console.Write("Введите Размер поля: ");
-            int size = Convert.ToInt32(Console.ReadLine());
-            int x, y = 0;
-            x = 0;
-            y = 2;
-            if (size <= 0) Console.WriteLine("Некорректный размер");
 
 
-            void kvadrat()
-            {
-                for (int i = 0; i < 5; i++)
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-
-                        if (j == i) Console.Write("* ");
-                        else if (j <= i) Console.Write("* ");
-                        else Console.Write("* ");
-                    }
-                    Console.Write('\n');
-                }
-            }
-            void pustota()
-            {
-
-                for (int i = 0; i < 5; i++)
-                {
-                    for (int j = 0; j < 5; j++)
-                    {
-
-                        if (j == i) Console.Write("  ");
-                        else if (j <= i) Console.Write("  ");
-                        else Console.Write("  ");
-                    }
-                    Console.Write('\n');
-                }
-            }
-
-            for (int i = 0; i < size; i++)
-            {
-                for (int j = 0; j < size; j++)
-                {
-                    Console.Write(i % 2 == 0 && j % 2 == 0 || i % 2 != 0 && j % 2 != 0 ? kvadrat() : pustota());
-                }
-                Console.Write("\n");
 
 
-#endif
-            
 
-            
         }
         static readonly string delimiter = "\n---------------------------------------------\n";
     }

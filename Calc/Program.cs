@@ -28,11 +28,12 @@ namespace Calc
             //Console.WriteLine();
             double[] numbers = new double[values.Length];
             for (int i = 0; i < numbers.Length; i++) numbers[i] = Convert.ToDouble(values[i]);
-            string[] operators = expression.Split('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',', ' ');
-
-            foreach (double i in numbers) Console.Write(i + " ");
+            string[] operators = expression.Split('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ',', ' ','.');
+            
+                foreach (double i in numbers) Console.Write(i + " ");
                 Console.WriteLine();
             foreach (string i in operators) Console.Write(i + " ");
+            Console.WriteLine();
             //double a = Convert.ToDouble(values[0]);
             //double b = Convert.ToDouble(values[1]);
 

@@ -10,6 +10,7 @@ namespace shooter2
     {
         static void Main(string[] args)
         {
+            
             //Console.WriteLine($"Window size: {Console.WindowWidth}x{Console.WindowHeight}");
             //Console.WriteLine($"Buffer size: {Console.BufferWidth}x{Console.BufferHeight}");
             Random rand = new Random();
@@ -23,9 +24,10 @@ namespace shooter2
                 Console.Clear();
                 Console.WriteLine($"Location {x}x{y}");
                 Console.SetCursorPosition(x, y);
-                Console.BackgroundColor = ConsoleColor.Blue;
-                Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine('+');
+                Console.BackgroundColor = ConsoleColor.Cyan;
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                
+                Console.WriteLine("*  ");
                 Console.ResetColor();
                 key = Console.ReadKey(true).Key;
                 switch (key)
