@@ -1,6 +1,9 @@
 #include<iostream>
+#include <ctime>
 using namespace std;
-
+using std::cin;
+using std::cout;
+using std::endl;
 class Tree
 {
 protected:
@@ -54,6 +57,10 @@ public:
 	{
 		insert(Data, Root);
 	}
+	int depth()const
+	{
+		return depth(this->Root);
+	}
 	void print()const
 	{
 		print(Root);
@@ -84,10 +91,7 @@ public:
 	{
 		erase(Data, Root);
 	}
-	int depth()const
-	{
-
-	}
+	
 private:
 	void insert(int Data, Element* Root)
 	{
@@ -103,6 +107,15 @@ private:
 			if (Root->pRight == nullptr)Root->pRight = new Element(Data);
 			else insert(Data, Root->pRight);
 		}
+	}
+	int depth(Element* Root)const
+	{
+		if (Root == nullptr)return 0;
+		else return 
+			depth(Root->pLeft)  + 1 >
+			depth(Root->pRight) + 1 ?
+			depth(Root->pLeft)  + 1 : 
+			depth(Root->pRight) + 1;
 	}
 	void print(Element* Root)const
 	{
@@ -172,10 +185,7 @@ private:
 		return Root == nullptr ? 0 : count(Root->pLeft) + count(Root->pRight) + 1;
 	}
 	
-	int depth(Element* Root)const
-	{
-
-	}
+	
 
 };
 class UniqueTree :public Tree
@@ -203,7 +213,8 @@ public:
 	}
 };
 
-//#define BASE_CHECK
+#define BASE_CHECK
+//#define ERASE_CHECK
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -223,7 +234,8 @@ void main()
 	cout << "Сумма элементов дерева: " << tree.sum() << endl;
 	cout << "Количество элементов дерева: " << tree.count() << endl;
 	cout << "Среднее арифметическое значение элементов дерева: " << tree.avg() << endl;
-
+	cout << "Глубина дерева: " << tree.depth() << endl;
+	
 
 	UniqueTree u_tree;
 
@@ -238,15 +250,22 @@ void main()
 	cout << "Сумма элементов дерева: " << u_tree.sum() << endl;
 	cout << "Количество элементов дерева: " << u_tree.count() << endl;
 	cout << "Среднее арифметическое значение элементов дерева: " << u_tree.avg() << endl;
+	cout << "Глубина дерева: " << tree.depth() << endl;
 #endif // BASE_CHECK
 
 
-	Tree tree = {				50,
-						25,				75,
-					16,		32,		64,		80 };
+#ifdef ERASE_CHECK
+	Tree tree = { 50,
+			25,				75,
+		16,		32,		64,		80,
+	17  ,
+		18 };
 	tree.print();
-	int value;
-	cout << "Введите удаляемое значение: "; cin >> value;
-	tree.erase(value);
+	//int value;
+	//cout << "Введите удаляемое значение: "; cin >> value;
+	//tree.erase(value);
 	tree.print();
+	cout << "Глубина дерева: " << tree.depth() << endl;
+#endif // ERASE_CHECK
+
 }
